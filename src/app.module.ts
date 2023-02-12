@@ -7,12 +7,12 @@ import { Blog } from './blog/entities/blog.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '123456',
-      database: 'goer_blog',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
       entities: [Blog],
       synchronize: true,
     }),

@@ -1,13 +1,14 @@
-version: '3'
-
+version: "3.8"
 services:
-  nestjs-mysql-db:
-    image: mysql:8.0
-    container_name: teachteam-mysql-db
-    ports:
-      - "3306:3306"
+  postgres-nestjs:
+    image: "postgres:15"
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_USER: goer-admin
-      MYSQL_PASSWORD: 123456Aa@
-      MYSQL_ROOT_HOST: '%'
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    #   Set a volume for data and initial sql script
+    #   Maybe configure init db
+    volumes:
+      - ".pgdata/goer-blog:/var/lib/postgresql/data"
